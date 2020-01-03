@@ -33,12 +33,33 @@
                 <el-form-item label="价格">
                     <el-input v-model="form.price"/>
                 </el-form-item>
-                <!-- 下拉列表 -->
-                <el-form-item label="介绍">
-                    <el-input v-model="form.name"/>
+                 <el-form-item label="所属栏目">
+                      <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                        </el-option>
+                      </el-select>
                 </el-form-item>
+                <el-form-item label="介绍">
+                    <el-input v-model="form.description"/>
+                </el-form-item>             
                 <el-form-item label="产品主图">
-                    <el-input v-model="form.name"/>
+                <el-upload
+                    class="upload-demo"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-preview="handlePreview"
+                    :on-remove="handleRemove"
+                    :before-remove="beforeRemove"
+                    multiple
+                    :limit="3"
+                    :on-exceed="handleExceed"
+                    :file-list="fileList">
+                    <el-button size="small" type="primary">点击上传</el-button>
+                    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                </el-upload>
                 </el-form-item>
 
             </el-form>
@@ -55,6 +76,9 @@ import request from '@/utils/request'
 import querystring from 'querystring'
 export default {
     data(){
+        {
+        fileList: [{}]
+      };
         return{
             title:"录入栏目信息",
             visible:false,
