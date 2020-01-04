@@ -49,7 +49,7 @@
                 <el-form-item label="产品主图">
                 <el-upload
                     class="upload-demo"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    action=""
                     :on-preview="handlePreview"
                     :on-remove="handleRemove"
                     :before-remove="beforeRemove"
@@ -124,7 +124,7 @@ export default {
             })
         },
         toAddHandler(){
-            let url = "http://134.175.154.93:6677/products/findAll"
+            let url = "http://134.175.154.93:6677/product/findAll"
             request.get(url).then((response)=>{
                 this.options = response.data;
             })

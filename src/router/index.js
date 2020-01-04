@@ -79,18 +79,6 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/product',
-    component: Layout,
-    children: [
-      {
-        path: 'list',
-        name: 'productList',
-        component: () => import('@/pages/product/list'),
-        meta: { title: '产品管理', icon: 'user' }
-      }
-    ]
-  },
-  {
     path: '/category',
     component: Layout,
     children: [
@@ -99,6 +87,18 @@ export const constantRoutes = [
         name: 'categoryList',
         component: () => import('@/pages/category/list'),
         meta: { title: '栏目管理', icon: 'user' }
+      }
+    ]
+  },
+  {
+    path: '/product',
+    component: Layout,
+    children: [
+      {
+        path: 'list',
+        name: 'productList',
+        component: () => import('@/pages/product/list'),
+        meta: { title: '产品管理', icon: 'user' }
       }
     ]
   },
